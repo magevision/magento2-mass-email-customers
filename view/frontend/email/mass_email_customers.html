@@ -1,0 +1,24 @@
+<!--
+/**
+ * MageVision Mass Email Customers Extension
+ *
+ * @category     MageVision
+ * @package      MageVision_MassEmailCustomers
+ * @author       MageVision Team
+ * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<!--@subject {{trans "Greetings %customer_name from %store_name" customer_name=$customer_name store_name=$store.getFrontendName()}}@-->
+<!--@vars {
+"var customer_name":"Customer name",
+"var customer_email":"Customer email",
+"var increment_id":"Order Id"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Hello, %customer_name," customer_name=$customer_name}}</p>
+
+<p>{{trans "We would like to inform you about..."}}</p>
+
+{{template config_path="design/email/footer_template"}}

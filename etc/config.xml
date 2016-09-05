@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageVision Mass Email Customers Extension
+ *
+ * @category     MageVision
+ * @package      MageVision_MassEmailCustomers
+ * @author       MageVision Team
+ * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <massemailcustomers>
+            <email>
+                <identity>general</identity>
+                <template>massemailcustomers_email_template</template>
+            </email>
+        </massemailcustomers>
+    </default>
+</config>

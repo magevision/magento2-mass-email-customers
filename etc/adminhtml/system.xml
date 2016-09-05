@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageVision Mass Email Customers Extension
+ *
+ * @category     MageVision
+ * @package      MageVision_MassEmailCustomers
+ * @author       MageVision Team
+ * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magevision" translate="label" sortOrder="1000">
+            <label>MageVision Extensions</label>
+        </tab>
+        <section id="massemailcustomers" translate="label" type="text" sortOrder="1002" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Mass Email Customers</label>
+            <tab>magevision</tab>
+            <resource>MageVision_MassEmailCustomers::massemailcustomers_configuration</resource>
+            <group id="email" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="identity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mass Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label comment" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mass Email Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
