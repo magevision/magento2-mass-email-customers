@@ -1,10 +1,10 @@
 # [MageVision](https://www.magevision.com/) Mass Email Customers for Magento 2
 
 ## Overview
-The Mass Email Customers extension gives you the ability to send mass email to all or selected registered and guest customers. Send mass email with one click from the admin sales order grid and the admin customer grid. Email template customization like Magento's default email templates. An easy way to contact your customers and keep them up-to-date with your news, events and updates.
+The Mass Email Customers extension gives you the ability to send an email to all or selected registered and guest customers. Send a mass email with one click from the admin sales order grid and the admin customer grid. Email template customization like Magento's default email templates. An easy way to contact your customers and keep them up-to-date with your news, events and updates.
 ## Key Features
 	* Send mass email to all or selected customers
-        * Send mass email with one click from the admin sales order grid and admin customer grid
+    * Send mass email with one click from the admin sales order grid and admin customer grid
 	* Easy email template customization like Magento's default email templates
 	* Custom email variables for customer and order data
 	
@@ -15,7 +15,7 @@ The Mass Email Customers extension gives you the ability to send mass email to a
 	* 100% open source
 
 ## Compatibility
-Magento Community Edition 2.1
+Magento Community Edition 2.1 - 2.2
 
 ## Installing the Extension
 	* Backup your web directory and store database
@@ -29,12 +29,13 @@ Magento Community Edition 2.1
             1. cd path_to_the_magento_root_directory 
             2. php -f bin/magento module:enable MageVision_MassEmailCustomers
             3. php -f bin/magento setup:upgrade
-            4. php -f bin/magento cache:flush
+            4. php -f bin/magento setup:di:compile
+            5. php -f bin/magento setup:static-content:deploy
         * Log out from Magento admin and log in again
 
 ## How to Use
 
-Navigate to Magento Admin under Stores → Configuration → MageVision → Mass Email Customers to  configure the Sender 	email and the Mass Email Template. 
+Navigate to Magento Admin under Stores → Configuration → MageVision Extensions → Mass Email Customers to  configure the Sender email and the Mass Email Template. 
 The default email template that the extension uses, includes just a simple example message. So you will need to customize it and add your message. Navigate to Magento Admin under Marketing → Email Templates and add a new template. Load as default template the “Mass Email Template“ and see the template's information. You can customize the template subject and content. Except from the default Magento's variables, you can also use some custom variables that you can use to add customer and order data to your email content. 
 
 Variables:
@@ -42,7 +43,7 @@ Variables:
 “customer_email“ : Customer Email Address
 “increment_id“  : Order Id (only for sending email from the admin sales order grid)
 
-Give a name to your custom template and save it. Afterwards navigate again to Magento Admin under Stores → Configuration → MageVision → Mass Email Customers and configure the extension to use your new custom email template.
+Give a name to your custom template and save it. Afterwards navigate again to Magento Admin under Stores → Configuration → MageVision Extensions → Mass Email Customers and configure the extension to use your new custom email template.
 
 ## Support
 If you need support or have any questions directly related to a [MageVision](https://www.magevision.com/) extension, please contact us at [support@magevision.com](mailto:support@magevision.com)

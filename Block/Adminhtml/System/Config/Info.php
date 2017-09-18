@@ -5,32 +5,32 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @copyright    Copyright (c) 2017 MageVision (http://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 namespace MageVision\MassEmailCustomers\Block\Adminhtml\System\Config;
 
 use Magento\Backend\Block\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use MageVision\MassEmailCustomers\Helper\Data;
+use MageVision\MassEmailCustomers\Helper\Data as Helper;
+use Magento\Backend\Block\AbstractBlock;
+use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
 
-class Info extends \Magento\Backend\Block\AbstractBlock implements
-    \Magento\Framework\Data\Form\Element\Renderer\RendererInterface
+class Info extends AbstractBlock implements RendererInterface
 {
     /**
-     * @var \MageVision\MassEmailCustomers\Helper\Data
+     * @var Helper
      */
     protected $helper;
     
     /**
      * Constructor
      * @param Context $context
-     * @param array $data
-     * @param Data $helper
+     * @param Helper $helper
      */
     public function __construct(
         Context $context,
-        Data $helper
+        Helper $helper
     ) {
         $this->helper = $helper;
         parent::__construct($context);

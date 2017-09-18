@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @copyright    Copyright (c) 2017 MageVision (http://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 namespace MageVision\MassEmailCustomers\Controller\Adminhtml\Email;
@@ -13,8 +13,13 @@ namespace MageVision\MassEmailCustomers\Controller\Adminhtml\Email;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
+use Magento\Backend\App\Action;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Customer\Model\ResourceModel\Customer\CollectionFactory as CustomerCollectionFactory;
+use Magento\Sales\Model\ResourceModel\Order\CollectionFactory as SalesCollectionFactory;
+use MageVision\MassEmailCustomers\Helper\Data as Helper;
 
-class MassSend extends \Magento\Backend\App\Action
+class MassSend extends Action
 {
     /**
      * @var Filter
@@ -27,31 +32,31 @@ class MassSend extends \Magento\Backend\App\Action
     protected $salesCollectionFactory;
     
     /**
-     * @var customerCollectionFactory
+     * @var CustomerCollectionFactory
      */
     protected $customerCollectionFactory;
     
     /**
-     * @var \MageVision\MassEmailCustomers\Helper\Data
+     * @var Helper
      */
-    protected $massEmailCustomersHelper;
+    protected $helper;
 
     /**
      * @param Context $context
      * @param Filter $filter
-     * @param \MageVision\MassEmailCustomers\Helper\Data $massEmailCustomersHelper
-     * @param \Magento\Customer\Model\ResourceModel\Customer\CollectionFactory $customerCollectionFactory
-     * @param \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $salesCollectionFactory
+     * @param Helper $helper
+     * @param CustomerCollectionFactory $customerCollectionFactory
+     * @param SalesCollectionFactory $salesCollectionFactory
      */
     public function __construct(
         Context $context,
         Filter $filter,
-        \MageVision\MassEmailCustomers\Helper\Data $massEmailCustomersHelper,
-        \Magento\Customer\Model\ResourceModel\Customer\CollectionFactory $customerCollectionFactory,
-        \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $salesCollectionFactory
+        Helper $helper,
+        CustomerCollectionFactory $customerCollectionFactory,
+        SalesCollectionFactory $salesCollectionFactory
     ) {
         $this->filter = $filter;
-        $this->massEmailCustomersHelper = $massEmailCustomersHelper;
+        $this->helper = $helper;
         $this->customerCollectionFactory = $customerCollectionFactory;
         $this->salesCollectionFactory = $salesCollectionFactory;
         parent::__construct($context);
@@ -75,19 +80,19 @@ class MassSend extends \Magento\Backend\App\Action
         $emailSent = 0;
         foreach ($collection as $item) {
             try {
-                $this->massEmailCustomersHelper->send($item);
+                $this->helper->send($item);
                 $emailSent++;
-            } catch (\Magento\Framework\Exception\LocalizedException $e) {
-                $this->messageManager->addError($e->getMessage());
+            } catch (LocalizedException $e) {
+                $this->messageManager->addErrorMessage($e->getMessage());
                 break;
             } catch (\Exception $e) {
-                $this->messageManager->addException($e, __('Some emails were not sent.'));
+                $this->messageManager->addExceptionMessage($e, __('Some emails were not sent.'));
                 break;
             }
         }
 
         if ($emailSent) {
-            $this->messageManager->addSuccess(__('A total of %1 email(s) have been sent.', $emailSent));
+            $this->messageManager->addSuccessMessage(__('A total of %1 email(s) have been sent.', $emailSent));
         }
 
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */

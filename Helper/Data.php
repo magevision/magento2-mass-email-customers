@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2016 MageVision (http://www.magevision.com)
+ * @copyright    Copyright (c) 2017 MageVision (http://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 namespace MageVision\MassEmailCustomers\Helper;
@@ -14,26 +14,26 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\Translate\Inline\StateInterface;
 use Magento\Framework\Module\ModuleListInterface;
+use Magento\Framework\App\Helper\AbstractHelper;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+class Data extends AbstractHelper
 {
     const XML_PATH_EMAIL_SENDER     = 'massemailcustomers/email/identity';
     const XML_PATH_EMAIL_TEMPLATE   = 'massemailcustomers/email/template';
     const MODULE_NAME               = 'Mass Email Customers';
-    const MODULE_VERSION            = 'MageVision_MassEmailCustomers';
 
     /**
-     * @var \Magento\Framework\Mail\Template\TransportBuilder
+     * @var TransportBuilder
      */
     protected $transportBuilder;
     
     /**
-     * @var \Magento\Framework\Translate\Inline\StateInterface
+     * @var StateInterface
      */
     protected $inlineTranslation;
 
     /**
-     * @var \Magento\Framework\Module\ModuleListInterface;
+     * @var ModuleListInterface;
      */
     protected $moduleList;
     
@@ -141,8 +141,20 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getExtensionVersion()
     {
-        $moduleInfo = $this->moduleList->getOne(self::MODULE_VERSION);
+        $moduleInfo = $this->moduleList->getOne($this->getModuleName());
         return $moduleInfo['setup_version'];
+    }
+
+    /**
+     * Returns module's name
+     *
+     * @return string
+     */
+    public function getModuleName()
+    {
+        $classArray = explode('\\', get_class($this));
+
+        return count($classArray) > 2 ? "{$classArray[0]}_{$classArray[1]}" : '';
     }
 
     /**
