@@ -15,7 +15,7 @@ The Mass Email Customers extension gives you the ability to send an email to all
 	* 100% open source
 
 ## Compatibility
-Magento Community Edition 2.1 - 2.2 - 2.3
+Magento Community Edition 2.3
 
 ## Installing the Extension
 	* Backup your web directory and store database
