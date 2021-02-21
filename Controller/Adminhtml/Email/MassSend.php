@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2019 MageVision (http://www.magevision.com)
+ * @copyright    Copyright (c) 2021 MageVision (http://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
@@ -38,12 +38,12 @@ class MassSend extends Action
      * @var salesCollectionFactory
      */
     protected $salesCollectionFactory;
-    
+
     /**
      * @var CustomerCollectionFactory
      */
     protected $customerCollectionFactory;
-    
+
     /**
      * @var Config
      */
@@ -95,7 +95,7 @@ class MassSend extends Action
     public function execute()
     {
         $namespace = $this->getRequest()->getParam('namespace');
-        
+
         if ($namespace == 'customer_listing') {
             $collection = $this->filter->getCollection($this->customerCollectionFactory->create());
         } else {

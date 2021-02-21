@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2019 MageVision (http://www.magevision.com)
+ * @copyright    Copyright (c) 2021 MageVision (http://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
@@ -63,7 +63,7 @@ Send mass emails to your customers from the admin sales order grid and customer 
 </p>
 <p>
 Check more extensions you might be interested in our <a href="https://www.magevision.com" target="_blank">website</a>.
-<br />Like and follow us on 
+<br />Like and follow us on
 <a href="https://www.facebook.com/magevision" target="_blank">Facebook</a>,
 <a href="https://www.linkedin.com/company/magevision" target="_blank">LinkedIn</a> and
 <a href="https://twitter.com/magevision" target="_blank">Twitter</a>.<br />
