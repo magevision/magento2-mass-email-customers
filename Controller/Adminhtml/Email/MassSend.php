@@ -137,11 +137,7 @@ class MassSend extends Action
         if ($item instanceof Order) {
             $email = $item->getCustomerEmail();
             $orderId = $item->getIncrementId();
-            if (!$item->getCustomerIsGuest()) {
-                $name = $item->getCustomerFirstname().' '.$item->getCustomerLastname();
-            } else {
-                $name = '';
-            }
+            $name = $item->getCustomerFirstname().' '.$item->getCustomerLastname();
         } else {
             $email = $item->getEmail();
             $name = $item->getName();
