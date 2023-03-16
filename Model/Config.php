@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2022 MageVision (https://www.magevision.com)
+ * @copyright    Copyright (c) 2023 MageVision (https://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
@@ -17,8 +17,8 @@ use Magento\Store\Model\ScopeInterface;
 
 class Config
 {
-    const XML_PATH_EMAIL_SENDER     = 'massemailcustomers/email/identity';
-    const XML_PATH_EMAIL_TEMPLATE   = 'massemailcustomers/email/template';
+    const XML_PATH_EMAIL_SENDER = 'massemailcustomers/email/identity';
+    const XML_PATH_EMAIL_TEMPLATE = 'massemailcustomers/email/template';
 
     /**
      * @var ScopeConfigInterface

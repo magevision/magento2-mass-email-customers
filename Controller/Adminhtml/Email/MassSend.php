@@ -5,27 +5,27 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2022 MageVision (https://www.magevision.com)
+ * @copyright    Copyright (c) 2023 MageVision (https://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
 namespace MageVision\MassEmailCustomers\Controller\Adminhtml\Email;
 
-use Magento\Framework\Controller\ResultFactory;
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
+use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Customer\Model\ResourceModel\Customer\CollectionFactory as CustomerCollectionFactory;
+use Magento\Framework\App\Area;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\MailException;
 use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\Translate\Inline\StateInterface;
-use Magento\Ui\Component\MassAction\Filter;
-use Magento\Backend\App\Action;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Customer\Model\ResourceModel\Customer\CollectionFactory as CustomerCollectionFactory;
-use Magento\Sales\Model\ResourceModel\Order\CollectionFactory as SalesCollectionFactory;
-use MageVision\MassEmailCustomers\Model\Config;
-use Magento\Framework\App\Area;
 use Magento\Sales\Model\Order;
-use Magento\Framework\Exception\MailException;
-use Magento\Backend\Model\View\Result\Redirect;
+use Magento\Sales\Model\ResourceModel\Order\CollectionFactory as SalesCollectionFactory;
+use Magento\Ui\Component\MassAction\Filter;
+use MageVision\MassEmailCustomers\Model\Config;
 
 class MassSend extends Action
 {
@@ -119,7 +119,6 @@ class MassSend extends Action
             $this->messageManager->addSuccessMessage(__('A total of %1 email(s) have been sent.', $emailSent));
         }
 
-        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setUrl($this->_redirect->getRefererUrl());
     }
@@ -137,7 +136,7 @@ class MassSend extends Action
         if ($item instanceof Order) {
             $email = $item->getCustomerEmail();
             $orderId = $item->getIncrementId();
-            $name = $item->getCustomerFirstname().' '.$item->getCustomerLastname();
+            $name = $item->getCustomerFirstname() . ' ' . $item->getCustomerLastname();
         } else {
             $email = $item->getEmail();
             $name = $item->getName();

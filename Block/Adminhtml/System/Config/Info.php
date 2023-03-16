@@ -5,19 +5,19 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2022 MageVision (https://www.magevision.com)
+ * @copyright    Copyright (c) 2023 MageVision (https://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
 namespace MageVision\MassEmailCustomers\Block\Adminhtml\System\Config;
 
+use Magento\Backend\Block\AbstractBlock;
 use Magento\Backend\Block\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use MageVision\MassEmailCustomers\Model\Info as ExtensionInfo;
 use Magento\Framework\Data\Form\Element\Renderer\RendererInterface;
-use Magento\Backend\Block\AbstractBlock;
 use Magento\Framework\Exception\FileSystemException;
+use MageVision\MassEmailCustomers\Model\Info as ExtensionInfo;
 
 class Info extends AbstractBlock implements RendererInterface
 {
@@ -27,15 +27,13 @@ class Info extends AbstractBlock implements RendererInterface
     protected $info;
 
     /**
-     * Constructor
      * @param Context $context
      * @param ExtensionInfo $info
      */
     public function __construct(
         Context $context,
         ExtensionInfo $info
-    )
-    {
+    ) {
         $this->info = $info;
         parent::__construct($context);
     }
@@ -51,7 +49,7 @@ class Info extends AbstractBlock implements RendererInterface
     {
         $version = $this->info->getExtensionVersion();
         $name = $this->info->getExtensionName();
-        $logoUrl = 'https://www.magevision.com/pub/media/logo/default/magevision.png';
+        $logoUrl = 'https://www.magevision.com/media/logo/default/magevision.png';
 
         $html = <<<HTML
 <div style="background: url('$logoUrl') no-repeat scroll 15px 15px #fff;
@@ -75,4 +73,3 @@ HTML;
         return $html;
     }
 }
-
