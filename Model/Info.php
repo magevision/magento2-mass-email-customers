@@ -6,7 +6,7 @@
  * @package      MageVision_MassEmailCustomers
  *
  * @author       MageVision Team
- * @copyright    Copyright (c) 2023 MageVision (https://www.magevision.com)
+ * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
@@ -22,20 +22,11 @@ class Info
 {
     const MODULE_NAME = 'Mass Email Customers';
 
-    /**
-     * @var DriverInterface
-     */
-    protected $driver;
+    protected DriverInterface $driver;
 
-    /**
-     * @var Json
-     */
-    protected $serializer;
+    protected Json $serializer;
 
-    /**
-     * @var Reader
-     */
-    protected $reader;
+    protected Reader $reader;
 
     /**
      * @param DriverInterface $driver

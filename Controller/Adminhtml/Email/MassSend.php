@@ -5,7 +5,7 @@
  * @category     MageVision
  * @package      MageVision_MassEmailCustomers
  * @author       MageVision Team
- * @copyright    Copyright (c) 2023 MageVision (https://www.magevision.com)
+ * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
  * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
@@ -29,35 +29,17 @@ use MageVision\MassEmailCustomers\Model\Config;
 
 class MassSend extends Action
 {
-    /**
-     * @var Filter
-     */
-    protected $filter;
+    protected Filter $filter;
 
-    /**
-     * @var salesCollectionFactory
-     */
-    protected $salesCollectionFactory;
+    protected SalesCollectionFactory $salesCollectionFactory;
 
-    /**
-     * @var CustomerCollectionFactory
-     */
-    protected $customerCollectionFactory;
+    protected CustomerCollectionFactory $customerCollectionFactory;
 
-    /**
-     * @var Config
-     */
-    protected $config;
+    protected Config $config;
 
-    /**
-     * @var TransportBuilder
-     */
-    protected $transportBuilder;
+    protected TransportBuilder $transportBuilder;
 
-    /**
-     * @var StateInterface
-     */
-    protected $inlineTranslation;
+    protected StateInterface $inlineTranslation;
 
     /**
      * @param Context $context
