@@ -2,12 +2,12 @@
 /**
  * MageVision Mass Email Customers Extension
  *
- * @category     MageVision
- * @package      MageVision_MassEmailCustomers
+ * @category MageVision
+ * @package  MageVision_MassEmailCustomers
  *
- * @author       MageVision Team
- * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
- * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @author    MageVision Team
+ * @copyright Copyright (c) 2024 MageVision (https://www.magevision.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
@@ -30,8 +30,8 @@ class Info
 
     /**
      * @param DriverInterface $driver
-     * @param Json $serializer
-     * @param Reader $reader
+     * @param Json            $serializer
+     * @param Reader          $reader
      */
     public function __construct(
         DriverInterface $driver,

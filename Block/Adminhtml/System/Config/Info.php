@@ -2,11 +2,11 @@
 /**
  * MageVision Mass Email Customers Extension
  *
- * @category     MageVision
- * @package      MageVision_MassEmailCustomers
- * @author       MageVision Team
- * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
- * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  MageVision
+ * @package   MageVision_MassEmailCustomers
+ * @author    MageVision Team
+ * @copyright Copyright (c) 2024 MageVision (https://www.magevision.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
@@ -24,7 +24,7 @@ class Info extends AbstractBlock implements RendererInterface
     protected ExtensionInfo $info;
 
     /**
-     * @param Context $context
+     * @param Context       $context
      * @param ExtensionInfo $info
      */
     public function __construct(
@@ -38,7 +38,7 @@ class Info extends AbstractBlock implements RendererInterface
     /**
      * Render form element as HTML
      *
-     * @param AbstractElement $element
+     * @param  AbstractElement $element
      * @return string
      * @throws FileSystemException
      */

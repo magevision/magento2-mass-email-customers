@@ -2,11 +2,11 @@
 /**
  * MageVision Mass Email Customers Extension
  *
- * @category     MageVision
- * @package      MageVision_MassEmailCustomers
- * @author       MageVision Team
- * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
- * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  MageVision
+ * @package   MageVision_MassEmailCustomers
+ * @author    MageVision Team
+ * @copyright Copyright (c) 2024 MageVision (https://www.magevision.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
@@ -34,7 +34,7 @@ class Config
     /**
      * Retrieve Sender
      *
-     * @param int $store
+     * @param  int $store
      * @return mixed
      */
     public function getSender($store = null)
@@ -49,7 +49,7 @@ class Config
     /**
      * Retrieve Email Template
      *
-     * @param int $store
+     * @param  int $store
      * @return mixed
      */
     public function getEmailTemplate($store = null)

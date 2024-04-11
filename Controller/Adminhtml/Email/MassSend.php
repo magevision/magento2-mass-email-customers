@@ -2,11 +2,11 @@
 /**
  * MageVision Mass Email Customers Extension
  *
- * @category     MageVision
- * @package      MageVision_MassEmailCustomers
- * @author       MageVision Team
- * @copyright    Copyright (c) 2024 MageVision (https://www.magevision.com)
- * @license      http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @category  MageVision
+ * @package   MageVision_MassEmailCustomers
+ * @author    MageVision Team
+ * @copyright Copyright (c) 2024 MageVision (https://www.magevision.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 declare(strict_types=1);
 
@@ -42,13 +42,13 @@ class MassSend extends Action
     protected StateInterface $inlineTranslation;
 
     /**
-     * @param Context $context
-     * @param Filter $filter
-     * @param Config $config
+     * @param Context                   $context
+     * @param Filter                    $filter
+     * @param Config                    $config
      * @param CustomerCollectionFactory $customerCollectionFactory
-     * @param SalesCollectionFactory $salesCollectionFactory
-     * @param TransportBuilder $transportBuilder
-     * @param StateInterface $inlineTranslation
+     * @param SalesCollectionFactory    $salesCollectionFactory
+     * @param TransportBuilder          $transportBuilder
+     * @param StateInterface            $inlineTranslation
      */
     public function __construct(
         Context $context,
@@ -106,7 +106,7 @@ class MassSend extends Action
     }
 
     /**
-     * @param object $item
+     * @param  object $item
      * @return $this
      * @throws LocalizedException
      * @throws MailException
